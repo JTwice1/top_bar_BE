@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
 
-import morgan from 'morgan';
-import winston from 'winston';
+// import morgan from 'morgan';
+// import winston from 'winston';
 import cors from 'cors';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
@@ -54,37 +54,37 @@ app.use(hpp());
 //-------------------------------------------------------------
 
 //Logging middleware for development environment
-const { combine, timestamp, simple } = winston.format;
+// const { combine, timestamp, simple } = winston.format;
 
-export const logger = winston.createLogger({
-  level: 'info',
-  format: combine(timestamp(), simple()),
-  transports: [
-    new winston.transports.File({
-      filename: './serverLogs/error.log',
-      level: 'error',
-    }),
-    new winston.transports.File({
-      filename: './serverLogs/warn.log',
-      level: 'warn',
-    }),
-    new winston.transports.File({
-      filename: './serverLogs/combined.log',
-    }),
-  ],
-});
+// export const logger = winston.createLogger({
+//   level: 'info',
+//   format: combine(timestamp(), simple()),
+//   transports: [
+//     new winston.transports.File({
+//       filename: './serverLogs/error.log',
+//       level: 'error',
+//     }),
+//     new winston.transports.File({
+//       filename: './serverLogs/warn.log',
+//       level: 'warn',
+//     }),
+//     new winston.transports.File({
+//       filename: './serverLogs/combined.log',
+//     }),
+//   ],
+// });
 
-if (process.env.NODE_ENV === 'development') {
-  logger.add(
-    new winston.transports.Console({
-      format: combine(timestamp(), winston.format.simple()),
-    })
-  );
-  const stream = {
-    write: (message: any) => logger.info(message.trim()),
-  };
-  app.use(morgan('tiny', { stream }));
-}
+// if (process.env.NODE_ENV === 'development') {
+//   logger.add(
+//     new winston.transports.Console({
+//       format: combine(timestamp(), winston.format.simple()),
+//     })
+//   );
+//   const stream = {
+//     write: (message: any) => logger.info(message.trim()),
+//   };
+//   app.use(morgan('tiny', { stream }));
+// }
 
 //CORS configuration
 const corsOptions = {
