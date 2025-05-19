@@ -90,7 +90,7 @@ if (process.env.NODE_ENV === 'development') {
 const corsOptions = {
   origin:
     process.env.NODE_ENV === 'production'
-      ? 'https://ruzovy-pasik.netlify.app/'
+      ? 'https://ruzovy-pasik.netlify.app'
       : 'http://localhost:5173',
   credentials: true,
 };
