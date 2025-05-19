@@ -8,7 +8,6 @@ import fs from 'fs';
 const saveFile = asyncWrapper(
   async (req: Request, res: Response, next: NextFunction) => {
     const { content } = req.body;
-    console.log('Received content:', content);
     if (!content) {
       return next(new CustomAPIError('Content required'));
     }

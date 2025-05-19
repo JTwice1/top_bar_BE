@@ -11,7 +11,6 @@ const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
 const saveFile = (0, asyncWrapper_1.default)(async (req, res, next) => {
     const { content } = req.body;
-    console.log('Received content:', content);
     if (!content) {
         return next(new errors_1.CustomAPIError('Content required'));
     }

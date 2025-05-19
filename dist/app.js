@@ -70,7 +70,8 @@ exports.logger = winston_1.default.createLogger({
         }),
     ],
 });
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development' ||
+    process.env.NODE_ENV === 'production') {
     exports.logger.add(new winston_1.default.transports.Console({
         format: combine(timestamp(), winston_1.default.format.simple()),
     }));

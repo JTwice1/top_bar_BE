@@ -74,7 +74,10 @@ export const logger = winston.createLogger({
   ],
 });
 
-if (process.env.NODE_ENV === 'development') {
+if (
+  process.env.NODE_ENV === 'development' ||
+  process.env.NODE_ENV === 'production'
+) {
   logger.add(
     new winston.transports.Console({
       format: combine(timestamp(), winston.format.simple()),
