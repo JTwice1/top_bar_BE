@@ -1,0 +1,54 @@
+{
+  "sk": [
+    {
+      "desktop": "Puella gel + parfémový set jen za 899 Kč. Vyberte si balíček, který udělá z praní zábavu!",
+      "mobile": "Puella gel + parfémový set jen za 899 Kč. Vyberte si balíček, který udělá z praní zábavu!",
+      "desktopBtn": "Nakupovat",
+      "mobileBtn": "Nakupovat",
+      "desktopBtnHref": "https://www.devpuella.sk/vsetky-produkty/",
+      "mobileBtnHref": "https://www.devpuella.sk/vsetky-produkty/"
+    },
+    {
+      "desktop": "🎁 ONLINE PLATBA = DÁREK ZDARMA K OBJEDNÁVCE!.",
+      "mobile": "🎁 ONLINE PLATBA = DÁREK ZDARMA K OBJEDNÁVCE!",
+      "desktopBtn": "",
+      "mobileBtn": "",
+      "desktopBtnHref": "",
+      "mobileBtnHref": ""
+    },
+    {
+      "desktop": "Puella gél + parfumový set len za 35,99 €.",
+      "mobile": "Puella gél + parfumový set len za 35,99 €.",
+      "desktopBtn": "Kupte si",
+      "mobileBtn": "Kupte si",
+      "desktopBtnHref": "https://www.devpuella.sk/pranie-s-darcekom/",
+      "mobileBtnHref": "https://www.devpuella.sk/pranie-s-darcekom/"
+    },
+    {
+      "desktop": "🎁 ONLINE PLATBA",
+      "mobile": "🎁 ONLINE PLATBA",
+      "desktopBtn": "",
+      "mobileBtn": "",
+      "desktopBtnHref": "",
+      "mobileBtnHref": ""
+    }
+  ],
+  "cz": [
+    {
+      "desktop": "Doprava zdarma nad 1200 Kč!",
+      "mobile": "Doprava zdarma!",
+      "desktopBtn": "Nakupuj",
+      "mobileBtn": "Shop",
+      "desktopBtnHref": "/nakup",
+      "mobileBtnHref": "/nakup"
+    },
+    {
+      "desktop": "Jarní kolekce je tady.",
+      "mobile": "Jaro je tu!",
+      "desktopBtn": "Prozkoumej",
+      "mobileBtn": "Zobrazit",
+      "desktopBtnHref": "/jaro",
+      "mobileBtnHref": "/jaro"
+    }
+  ]
+}

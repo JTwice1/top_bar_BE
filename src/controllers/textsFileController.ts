@@ -4,6 +4,7 @@ import { CustomAPIError, NotFoundError } from '../errors';
 import asyncWrapper from '../middleware/asyncWrapper';
 import path from 'path';
 import fs from 'fs';
+import fsPromises from 'fs/promises';
 
 const saveFile = asyncWrapper(
   async (req: Request, res: Response, next: NextFunction) => {
@@ -33,4 +34,16 @@ const getFile = asyncWrapper(
   }
 );
 
-export { saveFile, getFile };
+const sendJSON = asyncWrapper(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const filePath = path.join(__dirname, '../uploads/topBarTexts.json');
+    const data = await fsPromises.readFile(filePath, 'utf8');
+    if (!data) {
+      return next(new NotFoundError('File not found or empty'));
+    }
+    const parsed = JSON.parse(data);
+    res.status(StatusCodes.OK).json(parsed);
+  }
+);
+
+export { saveFile, getFile, sendJSON };

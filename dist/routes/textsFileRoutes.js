@@ -8,4 +8,5 @@ const router = express_1.default.Router();
 const textsFileController_1 = require("../controllers/textsFileController");
 router.route('/saveFile').post(textsFileController_1.saveFile);
 router.route('/getFile').get(textsFileController_1.getFile);
+router.route('/sendJSON').get(textsFileController_1.sendJSON);
 exports.default = router;
