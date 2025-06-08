@@ -99,8 +99,8 @@ const sendActualJSON = (0, asyncWrapper_1.default)(async (req, res, next) => {
             const endDate = new Date(toFullISO(entry.endDate));
             return (!isNaN(startDate.getTime()) &&
                 !isNaN(endDate.getTime()) &&
-                startDate.getTime() <= now &&
-                endDate.getTime() >= now);
+                startDate.getTime() < now &&
+                endDate.getTime() > now);
         });
         return [lang, validEntries];
     }));
