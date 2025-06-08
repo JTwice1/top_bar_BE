@@ -95,8 +95,8 @@ const sendActualJSON = asyncWrapper(
     const filtered = Object.fromEntries(
       Object.entries(parsed).map(([lang, entries]) => {
         const validEntries = (entries as Entry[]).filter((entry) => {
-          const startDate = new Date(`${entry.startDate}:00`);
-          const endDate = new Date(`${entry.endDate}:00`);
+          const startDate = new Date(entry.startDate);
+          const endDate = new Date(entry.endDate);
           return (
             !isNaN(startDate.getTime()) &&
             !isNaN(endDate.getTime()) &&
