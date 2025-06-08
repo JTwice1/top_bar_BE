@@ -6,6 +6,7 @@ import path from 'path';
 import fs from 'fs';
 import fsPromises from 'fs/promises';
 import { Entry } from '../types/types';
+import { DateTime } from 'luxon';
 
 const saveFile = asyncWrapper(
   async (req: Request, res: Response, next: NextFunction) => {
@@ -80,6 +81,51 @@ const sendJSON = asyncWrapper(
   }
 );
 
+// const sendActualJSON = asyncWrapper(
+//   async (req: Request, res: Response, next: NextFunction) => {
+//     const filePath = path.join(__dirname, '../uploads/topBarTexts.json');
+//     const data = await fsPromises.readFile(filePath, 'utf8');
+
+//     if (!data) {
+//       return next(new NotFoundError('File not found or empty'));
+//     }
+
+//     function toFullISO(dateStr: string): string {
+//       // If it already contains seconds, return as is
+//       if (dateStr.match(/T\d{2}:\d{2}:\d{2}$/)) return dateStr;
+//       // If it contains just hours and minutes, add ":00"
+//       if (dateStr.match(/T\d{2}:\d{2}$/)) return `${dateStr}:00`;
+//       return dateStr; // Fallback
+//     }
+
+//     const parsed = JSON.parse(data);
+//     const now = new Date();
+
+//     const filtered = Object.fromEntries(
+//       Object.entries(parsed).map(([lang, entries]) => {
+//         const validEntries = (entries as Entry[]).filter((entry) => {
+//           if (!entry.startDate || !entry.endDate) {
+//             return false;
+//           }
+//           const startDateStr = toFullISO(entry.startDate);
+//           const endDateStr = toFullISO(entry.endDate);
+
+//           const startDate = new Date(startDateStr);
+//           const endDate = new Date(endDateStr);
+
+//           if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+//             return false; // Skip if either date is invalid
+//           }
+
+//           return startDate < now && endDate > now;
+//         });
+//         return [lang, validEntries];
+//       })
+//     );
+
+//     res.status(StatusCodes.OK).json(filtered);
+//   }
+// );
 const sendActualJSON = asyncWrapper(
   async (req: Request, res: Response, next: NextFunction) => {
     const filePath = path.join(__dirname, '../uploads/topBarTexts.json');
@@ -90,31 +136,30 @@ const sendActualJSON = asyncWrapper(
     }
 
     function toFullISO(dateStr: string): string {
-      // If it already contains seconds, return as is
       if (dateStr.match(/T\d{2}:\d{2}:\d{2}$/)) return dateStr;
-      // If it contains just hours and minutes, add ":00"
       if (dateStr.match(/T\d{2}:\d{2}$/)) return `${dateStr}:00`;
-      return dateStr; // Fallback
+      return dateStr;
     }
 
     const parsed = JSON.parse(data);
-    const now = new Date();
+    const now = DateTime.now().setZone('Europe/Bratislava');
 
     const filtered = Object.fromEntries(
       Object.entries(parsed).map(([lang, entries]) => {
         const validEntries = (entries as Entry[]).filter((entry) => {
-          if (!entry.startDate || !entry.endDate) {
-            return false;
-          }
+          if (!entry.startDate || !entry.endDate) return false;
+
           const startDateStr = toFullISO(entry.startDate);
           const endDateStr = toFullISO(entry.endDate);
 
-          const startDate = new Date(startDateStr);
-          const endDate = new Date(endDateStr);
+          const startDate = DateTime.fromISO(startDateStr, {
+            zone: 'Europe/Bratislava',
+          });
+          const endDate = DateTime.fromISO(endDateStr, {
+            zone: 'Europe/Bratislava',
+          });
 
-          if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
-            return false; // Skip if either date is invalid
-          }
+          if (!startDate.isValid || !endDate.isValid) return false;
 
           return startDate < now && endDate > now;
         });
