@@ -108,8 +108,8 @@ const sendActualJSON = asyncWrapper(
           return (
             !isNaN(startDate.getTime()) &&
             !isNaN(endDate.getTime()) &&
-            startDate.getTime() < now &&
-            endDate.getTime() > now
+            startDate.getTime() <= now &&
+            endDate.getTime() >= now
           );
         });
         return [lang, validEntries];
