@@ -47,8 +47,8 @@ const TOP_BAR_TEXTS = {
       "mobileBtn": "",
       "desktopBtnHref": "",
       "mobileBtnHref": "",
-      "startDate": "",
-      "endDate": ""
+      "startDate": "2025-06-08T15:06",
+      "endDate": "2025-06-08T15:12"
     }
   ],
   "cz": [

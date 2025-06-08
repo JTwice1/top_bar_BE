@@ -92,15 +92,20 @@ const sendActualJSON = (0, asyncWrapper_1.default)(async (req, res, next) => {
         return dateStr; // Fallback
     }
     const parsed = JSON.parse(data);
-    const now = Date.now();
+    const now = new Date();
     const filtered = Object.fromEntries(Object.entries(parsed).map(([lang, entries]) => {
         const validEntries = entries.filter((entry) => {
-            const startDate = new Date(toFullISO(entry.startDate));
-            const endDate = new Date(toFullISO(entry.endDate));
-            return (!isNaN(startDate.getTime()) &&
-                !isNaN(endDate.getTime()) &&
-                startDate.getTime() < now &&
-                endDate.getTime() > now);
+            if (!entry.startDate || !entry.endDate) {
+                return false;
+            }
+            const startDateStr = toFullISO(entry.startDate);
+            const endDateStr = toFullISO(entry.endDate);
+            const startDate = new Date(startDateStr);
+            const endDate = new Date(endDateStr);
+            if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+                return false; // Skip if either date is invalid
+            }
+            return startDate < now && endDate > now;
         });
         return [lang, validEntries];
     }));
