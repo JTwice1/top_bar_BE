@@ -1,156 +1,206 @@
 const TOP_BAR_TEXTS = {
-  "sk": {
-    "desktop1": "Puella gél + parfumový set len za 35,99 €. Vyberte si balíček, ktorý urobí z prania zábavu!",
-    "desktop2": "🎁 ONLINE PLATBA = DARČEK ZADARMO K OBJEDNÁVKE!",
-    "mobile1": "Puella gél + parfumový set len za 35,99 €. Vyberte si balíček, ktorý urobí z prania zábavu!",
-    "mobile2": "🎁 ONLINE PLATBA = DARČEK ZADARMO K OBJEDNÁVKE!",
-    "desktopBtn1": "Nakupovať",
-    "desktopBtn2": "",
-    "mobileBtn1": "Nakupovať",
-    "mobileBtn2": "",
-    "desktopBtnHref1": "https://www.puellavone.sk/pranie-s-darcekom/",
-    "desktopBtnHref2": "",
-    "mobileBtnHref1": "https://www.puellavone.sk/pranie-s-darcekom/",
-    "mobileBtnHref2": ""
-  },
-  "cz": {
-    "desktop1": "Puella gel + parfémový set jen za 899 Kč. Vyberte si balíček, který udělá z praní zábavu!",
-    "desktop2": "🎁 ONLINE PLATBA = DÁREK ZDARMA K OBJEDNÁVCE!",
-    "mobile1": "Puella gel + parfémový set jen za 899 Kč. Vyberte si balíček, který udělá z praní zábavu!",
-    "mobile2": "🎁 ONLINE PLATBA = DÁREK ZDARMA K OBJEDNÁVCE!",
-    "desktopBtn1": "Nakupovat",
-    "desktopBtn2": "",
-    "mobileBtn1": "Nakupovat",
-    "mobileBtn2": "",
-    "desktopBtnHref1": "https://www.puellavune.cz/prani-s-dareckem",
-    "desktopBtnHref2": "",
-    "mobileBtnHref1": "https://www.puellavune.cz/prani-s-dareckem",
-    "mobileBtnHref2": ""
-  },
-  "hu": {
-    "desktop1": "Puella gél + parfümös szett csak 15 490 Ft. Válassz egy csomagot, és tedd a mosást szorakozássá!",
-    "desktop2": "🎁 ONLINE FIZETÉS = AJÁNDÉK A RENDELÉSHEZ!",
-    "mobile1": "Puella gél + parfümös szett csak 15 490 Ft. Válassz egy csomagot, és tedd a mosást szorakozássá!",
-    "mobile2": "🎁 ONLINE FIZETÉS = AJÁNDÉK A RENDELÉSHEZ!",
-    "desktopBtn1": "Vásárlás",
-    "desktopBtn2": "",
-    "mobileBtn1": "Vásárlás",
-    "mobileBtn2": "",
-    "desktopBtnHref1": "https://www.puellaillatok.hu/mosas-ajandekkal/",
-    "desktopBtnHref2": "",
-    "mobileBtnHref1": "https://www.puellaillatok.hu/mosas-ajandekkal/",
-    "mobileBtnHref2": ""
-  },
-  "de": {
-    "desktop1": "22 % Rabatt auf alle Wäscheparfüms für 100 Waschgänge! Zögern Sie nicht, kaufen Sie ein und sparen Sie!",
-    "desktop2": "22 % Rabatt auf alle Wäscheparfüms für 100 Waschgänge! Zögern Sie nicht, kaufen Sie ein und sparen Sie!",
-    "mobile1": "22 % Rabatt auf alle Wäscheparfüms für 100 Waschgänge! Zögern Sie nicht, kaufen Sie ein und sparen Sie!",
-    "mobile2": "22 % Rabatt auf alle Wäscheparfüms für 100 Waschgänge! Zögern Sie nicht, kaufen Sie ein und sparen Sie!",
-    "desktopBtn1": "Einkaufen",
-    "desktopBtn2": "Einkaufen",
-    "mobileBtn1": "Einkaufen",
-    "mobileBtn2": "Einkaufen",
-    "desktopBtnHref1": "https://www.puelladufte.de/wascheparfums/",
-    "desktopBtnHref2": "https://www.puelladufte.de/wascheparfums/",
-    "mobileBtnHref1": "https://www.puelladufte.de/wascheparfums/",
-    "mobileBtnHref2": "https://www.puelladufte.de/wascheparfums/"
-  },
-  "at": {
-    "desktop1": "22 % Rabatt auf alle Wäscheparfüms für 100 Waschgänge! Zögern Sie nicht, kaufen Sie ein und sparen Sie!",
-    "desktop2": "22 % Rabatt auf alle Wäscheparfüms für 100 Waschgänge! Zögern Sie nicht, kaufen Sie ein und sparen Sie!",
-    "mobile1": "22 % Rabatt auf alle Wäscheparfüms für 100 Waschgänge! Zögern Sie nicht, kaufen Sie ein und sparen Sie!",
-    "mobile2": "22 % Rabatt auf alle Wäscheparfüms für 100 Waschgänge! Zögern Sie nicht, kaufen Sie ein und sparen Sie!",
-    "desktopBtn1": "Einkaufen",
-    "desktopBtn2": "Einkaufen",
-    "mobileBtn1": "Einkaufen",
-    "mobileBtn2": "Einkaufen",
-    "desktopBtnHref1": "https://www.puelladufte.at/wascheparfums/",
-    "desktopBtnHref2": "https://www.puelladufte.at/wascheparfums/",
-    "mobileBtnHref1": "https://www.puelladufte.at/wascheparfums/",
-    "mobileBtnHref2": "https://www.puelladufte.at/wascheparfums/"
-  },
-  "pl": {
-    "desktop1": "22 % rabatu na wszystkie perfumy do prania 100 ml! Nie czekaj – kupuj i oszczędzaj!",
-    "desktop2": "22 % rabatu na wszystkie perfumy do prania 100 ml! Nie czekaj – kupuj i oszczędzaj!",
-    "mobile1": "22 % rabatu na wszystkie perfumy do prania 100 ml! Nie czekaj – kupuj i oszczędzaj!",
-    "mobile2": "22 % rabatu na wszystkie perfumy do prania 100 ml! Nie czekaj – kupuj i oszczędzaj!",
-    "desktopBtn1": "Robić zakupy",
-    "desktopBtn2": "Robić zakupy",
-    "mobileBtn1": "Robić zakupy",
-    "mobileBtn2": "Robić zakupy",
-    "desktopBtnHref1": "https://www.puellazapachy.pl/pranie/",
-    "desktopBtnHref2": "https://www.puellazapachy.pl/pranie/",
-    "mobileBtnHref1": "https://www.puellazapachy.pl/pranie/",
-    "mobileBtnHref2": "https://www.puellazapachy.pl/pranie/"
-  },
-  "si": {
-    "desktop1": "21 % popust na vse parfume za pranje na 100! Ne odlašajte, nakupujte in prihranite!",
-    "desktop2": "21 % popust na vse parfume za pranje na 100! Ne odlašajte, nakupujte in prihranite!",
-    "mobile1": "21 % popust na vse parfume za pranje na 100! Ne odlašajte, nakupujte in prihranite!",
-    "mobile2": "21 % popust na vse parfume za pranje na 100! Ne odlašajte, nakupujte in prihranite!",
-    "desktopBtn1": "Nakupovati",
-    "desktopBtn2": "Nakupovati",
-    "mobileBtn1": "Nakupovati",
-    "mobileBtn2": "Nakupovati",
-    "desktopBtnHref1": "https://www.puellavonjave.si/parfumi-za-pranje/",
-    "desktopBtnHref2": "https://www.puellavonjave.si/parfumi-za-pranje/",
-    "mobileBtnHref1": "https://www.puellavonjave.si/parfumi-za-pranje/",
-    "mobileBtnHref2": "https://www.puellavonjave.si/parfumi-za-pranje/"
-  },
-  "hr": {
-    "desktop1": "21 % popusta na sve parfeme za pranje na 100! Ne oklijevajte, kupujte i uštedite!",
-    "desktop2": "21 % popusta na sve parfeme za pranje na 100! Ne oklijevajte, kupujte i uštedite!",
-    "mobile1": "21 % popusta na sve parfeme za pranje na 100! Ne oklijevajte, kupujte i uštedite!",
-    "mobile2": "21 % popusta na sve parfeme za pranje na 100! Ne oklijevajte, kupujte i uštedite!",
-    "desktopBtn1": "Kupovati",
-    "desktopBtn2": "Kupovati",
-    "mobileBtn1": "Kupovati",
-    "mobileBtn2": "Kupovati",
-    "desktopBtnHref1": "https://www.puellamirisi.hr/parfemi-za-rublje/",
-    "desktopBtnHref2": "https://www.puellamirisi.hr/parfemi-za-rublje/",
-    "mobileBtnHref1": "https://www.puellamirisi.hr/parfemi-za-rublje/",
-    "mobileBtnHref2": "https://www.puellamirisi.hr/parfemi-za-rublje/"
-  },
-  "ro": {
-    "desktop1": "17 % reducere la toate parfumurile de rufe la 100 de spălări! Nu ezitați, cumpărați, economisiți!",
-    "desktop2": "17 % reducere la toate parfumurile de rufe la 100 de spălări! Nu ezitați, cumpărați, economisiți!",
-    "mobile1": "17 % reducere la toate parfumurile de rufe la 100 de spălări! Nu ezitați, cumpărați, economisiți!",
-    "mobile2": "17 % reducere la toate parfumurile de rufe la 100 de spălări! Nu ezitați, cumpărați, economisiți!",
-    "desktopBtn1": "Cumpărați",
-    "desktopBtn2": "Cumpărați",
-    "mobileBtn1": "Cumpărați",
-    "mobileBtn2": "Cumpărați",
-    "desktopBtnHref1": "https://www.puellaparfumuri.ro/parfumuri-pentru-rufe/",
-    "desktopBtnHref2": "https://www.puellaparfumuri.ro/parfumuri-pentru-rufe/",
-    "mobileBtnHref1": "https://www.puellaparfumuri.ro/parfumuri-pentru-rufe/",
-    "mobileBtnHref2": "https://www.puellaparfumuri.ro/parfumuri-pentru-rufe/"
-  },
-  "com": {
-    "desktop1": "iba testujem ale aj cestujem, testtet",
-    "desktop2": "cestujem",
-    "mobile1": "cestujem",
-    "mobile2": "cestujem",
-    "desktopBtn1": "cestujem",
-    "desktopBtn2": "cestujem",
-    "mobileBtn1": "cestujem",
-    "mobileBtn2": "cestujem",
-    "desktopBtnHref1": "",
-    "desktopBtnHref2": "",
-    "mobileBtnHref1": "",
-    "mobileBtnHref2": ""
-  },
-  "it": {
-    "desktop1": "",
-    "desktop2": "",
-    "mobile1": "",
-    "mobile2": "",
-    "desktopBtn1": "",
-    "desktopBtn2": "",
-    "mobileBtn1": "",
-    "mobileBtn2": "",
-    "desktopBtnHref1": "",
-    "desktopBtnHref2": "",
-    "mobileBtnHref1": "",
-    "mobileBtnHref2": ""
-  }
+  "sk": [
+    {
+      "desktop": "100 voňavých praní = gél + parfum len za 31,99 €! Vyberte si parfum a gél na pranie máte ZADARMO!",
+      "mobile": "100 voňavých praní = gél + parfum len za 31,99 €! Vyberte si parfum a gél na pranie máte ZADARMO!",
+      "desktopBtn": "Chcem darček",
+      "mobileBtn": "Chcem darček",
+      "desktopBtnHref": "https://www.puellavone.sk/set-100-najvonavejsich-prani/",
+      "mobileBtnHref": "https://www.puellavone.sk/set-100-najvonavejsich-prani/",
+      "startDate": "2025-06-07T17:48",
+      "endDate": "2025-06-26T18:30"
+    },
+    {
+      "desktop": "Sviežosť vône JaLu teraz so zľavou 25% - sviečka, parfumy, roll-on aj difuzér!",
+      "mobile": "Sviežosť vône JaLu teraz so zľavou 25% - sviečka, parfumy, roll-on aj difuzér!",
+      "desktopBtn": "Nakupovať",
+      "mobileBtn": "Nakupovať",
+      "desktopBtnHref": "https://www.puellavone.sk/ja-lu-zlava-25/",
+      "mobileBtnHref": "https://www.puellavone.sk/ja-lu-zlava-25/",
+      "startDate": "2025-06-07T16:05",
+      "endDate": "2025-06-07T16:03"
+    },
+    {
+      "desktop": "Len 8,49 € za parfum na 10 praní - praktické balenie, skvelá cena!",
+      "mobile": "Len 8,49 € za parfum na 10 praní - praktické balenie, skvelá cena!",
+      "desktopBtn": "Nakupovať",
+      "mobileBtn": "Nakupovať",
+      "desktopBtnHref": "https://www.puellavone.sk/parfumy-na-pranie/",
+      "mobileBtnHref": "https://www.puellavone.sk/parfumy-na-pranie/",
+      "startDate": "2025-06-07T17:06",
+      "endDate": "2025-06-09T17:14"
+    },
+    {
+      "desktop": "Iba testovaci top bar text",
+      "mobile": "Iba testovaci top bar text",
+      "desktopBtn": "",
+      "mobileBtn": "",
+      "desktopBtnHref": "",
+      "mobileBtnHref": "",
+      "startDate": "2025-06-07T18:41",
+      "endDate": "2025-06-07T18:42"
+    },
+    {
+      "desktop": "just for test",
+      "mobile": "",
+      "desktopBtn": "",
+      "mobileBtn": "",
+      "desktopBtnHref": "",
+      "mobileBtnHref": "",
+      "startDate": "",
+      "endDate": ""
+    }
+  ],
+  "cz": [
+    {
+      "desktop": "100 voňavých praní = gel + parfém jen za 799 Kč! Vyberte si parfém a gel na praní máte ZDARMA!",
+      "mobile": "100 voňavých praní = gel + parfém jen za 799 Kč! Vyberte si parfém a gel na praní máte ZDARMA!",
+      "desktopBtn": "Chci dárek",
+      "mobileBtn": "Chci dárek",
+      "desktopBtnHref": "https://www.puellavune.cz/set-100-nejvonavejsich-prani/",
+      "mobileBtnHref": "https://www.puellavune.cz/set-100-nejvonavejsich-prani/",
+      "startDate": "2025-06-07T17:48",
+      "endDate": "2025-06-22T18:30"
+    },
+    {
+      "desktop": "Svěžest vůně JaLu nyní se slevou 25% - svíčka, parfémy, roll-on i difuzér!",
+      "mobile": "Svěžest vůně JaLu nyní se slevou 25% - svíčka, parfémy, roll-on i difuzér!",
+      "desktopBtn": "Nakupovat",
+      "mobileBtn": "Nakupovat",
+      "desktopBtnHref": "https://www.puellavune.cz/ja-lu-sleva-25/",
+      "mobileBtnHref": "https://www.puellavune.cz/ja-lu-sleva-25/",
+      "startDate": "",
+      "endDate": ""
+    },
+    {
+      "desktop": "Jen 215 Kč za parfém na 10 praní - praktické balení, skvělá cena!",
+      "mobile": "Jen 215 Kč za parfém na 10 praní - praktické balení, skvělá cena!",
+      "desktopBtn": "Nakupovat",
+      "mobileBtn": "Nakupovat",
+      "desktopBtnHref": "https://www.puellavune.cz/parfemy-na-prani/",
+      "mobileBtnHref": "https://www.puellavune.cz/parfemy-na-prani/",
+      "startDate": "",
+      "endDate": ""
+    }
+  ],
+  "hu": [
+    {
+      "desktop": "100 illatos mosás = mosógél + mosóparfüm mindössze 13 690 Ft! Válassz egy mosóparfümöt, és a mosógél INGYENES!",
+      "mobile": "100 illatos mosás = mosógél + mosóparfüm mindössze 13 690 Ft! Válassz egy mosóparfümöt, és a mosógél INGYENES!",
+      "desktopBtn": "Ajándékot szeretnék",
+      "mobileBtn": "Ajándékot szeretnék",
+      "desktopBtnHref": "https://www.puellaillatok.hu/a-100-legillatosabb-mosas-szett/",
+      "mobileBtnHref": "https://www.puellaillatok.hu/a-100-legillatosabb-mosas-szett/"
+    },
+    {
+      "desktop": "A JaLu frissessége most 25% kedvezménnyel – gyertya, parfüm, roll-on vagy pálcás illatosító!",
+      "mobile": "A JaLu frissessége most 25% kedvezménnyel – gyertya, parfüm, roll-on vagy pálcás illatosító!",
+      "desktopBtn": "Vásárlás",
+      "mobileBtn": "Vásárlás",
+      "desktopBtnHref": "https://www.puellaillatok.hu/jalu-25--kedvezmeny/",
+      "mobileBtnHref": "https://www.puellaillatok.hu/jalu-25--kedvezmeny/"
+    },
+    {
+      "desktop": "Csak 3 590 Ft 10 mosásért – praktikus csomagolás, szuper ár!",
+      "mobile": "Csak 3 590 Ft 10 mosásért – praktikus csomagolás, szuper ár!",
+      "desktopBtn": "Vásárlás",
+      "mobileBtn": "Vásárlás",
+      "desktopBtnHref": "https://www.puellaillatok.hu/mosoparfumok/",
+      "mobileBtnHref": "https://www.puellaillatok.hu/mosoparfumok/"
+    }
+  ],
+  "de": [
+    {
+      "desktop": "ACHTUNG! Probeset jetzt nur noch für 3,99 €!",
+      "mobile": "ACHTUNG! Probeset jetzt nur noch für 3,99 €!",
+      "desktopBtn": "Ausprobieren",
+      "mobileBtn": "Ausprobieren",
+      "desktopBtnHref": "https://www.puelladufte.de/proben-6stk/",
+      "mobileBtnHref": "https://www.puelladufte.de/proben-6stk/"
+    }
+  ],
+  "at": [
+    {
+      "desktop": "ACHTUNG! Probeset jetzt nur noch für 3,99 €!",
+      "mobile": "ACHTUNG! Probeset jetzt nur noch für 3,99 €!",
+      "desktopBtn": "Ausprobieren",
+      "mobileBtn": "Ausprobieren",
+      "desktopBtnHref": "https://www.puelladufte.at/proben-6stk/",
+      "mobileBtnHref": "https://www.puelladufte.at/proben-6stk/"
+    }
+  ],
+  "pl": [
+    {
+      "desktop": "Tylko 43,90 ZŁ za perfumy na 10 prań – praktyczne opakowanie, świetna cena!",
+      "mobile": "Tylko 43,90 ZŁ za perfumy na 10 prań – praktyczne opakowanie, świetna cena!",
+      "desktopBtn": "Kup teraz",
+      "mobileBtn": "Kup teraz",
+      "desktopBtnHref": "https://www.puellazapachy.pl/perfumy-do-prania/",
+      "mobileBtnHref": "https://www.puellazapachy.pl/perfumy-do-prania/",
+      "startDate": "",
+      "endDate": ""
+    }
+  ],
+  "si": [
+    {
+      "desktop": "test",
+      "mobile": "",
+      "desktopBtn": "",
+      "mobileBtn": "",
+      "desktopBtnHref": "",
+      "mobileBtnHref": "",
+      "startDate": "",
+      "endDate": ""
+    }
+  ],
+  "hr": [
+    {
+      "desktop": "",
+      "mobile": "",
+      "desktopBtn": "",
+      "mobileBtn": "",
+      "desktopBtnHref": "",
+      "mobileBtnHref": ""
+    }
+  ],
+  "ro": [
+    {
+      "desktop": "",
+      "mobile": "",
+      "desktopBtn": "",
+      "mobileBtn": "",
+      "desktopBtnHref": "",
+      "mobileBtnHref": ""
+    },
+    {
+      "desktop": "rggt3tg",
+      "mobile": "",
+      "desktopBtn": "",
+      "mobileBtn": "",
+      "desktopBtnHref": "",
+      "mobileBtnHref": ""
+    }
+  ],
+  "com": [
+    {
+      "desktop": "",
+      "mobile": "",
+      "desktopBtn": "",
+      "mobileBtn": "",
+      "desktopBtnHref": "",
+      "mobileBtnHref": ""
+    }
+  ],
+  "it": [
+    {
+      "desktop": "",
+      "mobile": "",
+      "desktopBtn": "",
+      "mobileBtn": "",
+      "desktopBtnHref": "",
+      "mobileBtnHref": "",
+      "startDate": "",
+      "endDate": ""
+    }
+  ]
 };

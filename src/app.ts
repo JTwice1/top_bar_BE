@@ -1,4 +1,6 @@
 import express, { Request, Response } from 'express';
+import errorHandler from './middleware/errorHandler';
+import type { ErrorRequestHandler } from 'express';
 
 import morgan from 'morgan';
 import winston from 'winston';
@@ -90,17 +92,39 @@ if (
 }
 
 //CORS configuration
-const corsOptions = {
-  origin:
-    process.env.NODE_ENV === 'production'
-      ? 'https://ruzovy-pasik.netlify.app'
-      : 'http://localhost:5173',
+const allowedOrigins =
+  process.env.NODE_ENV === 'production'
+    ? ['https://ruzovy-pasik.netlify.app', 'https://puellavone.netlify.app']
+    : ['http://localhost:5173', 'http://127.0.0.1:5501'];
+
+interface CorsOptions {
+  origin: (
+    origin: string | undefined,
+    callback: (err: Error | null, allow?: boolean) => void
+  ) => void;
+  credentials: boolean;
+}
+
+const corsOptions: CorsOptions = {
+  origin: function (
+    origin: string | undefined,
+    callback: (err: Error | null, allow?: boolean) => void
+  ): void {
+    // Allow requests with no origin (like curl or Postman)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
 };
+
 app.use(cors(corsOptions));
 
 // Limit the amount of data that can be sent in a request body
-app.use(express.json({ limit: '10kb' }));
+app.use(express.json({ limit: '15kb' }));
 
 //Routers
 import textsFileRouter from './routes/textsFileRoutes';
@@ -110,5 +134,7 @@ app.use('/file', textsFileRouter);
 app.get('/', (req: Request, res: Response) => {
   res.status(200).send('TOP BAR texts creator Server is Running....... 🛰️');
 });
+
+app.use(errorHandler as ErrorRequestHandler);
 
 export default app;

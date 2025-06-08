@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.logger = void 0;
 const express_1 = __importDefault(require("express"));
+const errorHandler_1 = __importDefault(require("./middleware/errorHandler"));
 const morgan_1 = __importDefault(require("morgan"));
 const winston_1 = __importDefault(require("winston"));
 const cors_1 = __importDefault(require("cors"));
@@ -81,15 +82,26 @@ if (process.env.NODE_ENV === 'development' ||
     app.use((0, morgan_1.default)('tiny', { stream }));
 }
 //CORS configuration
+const allowedOrigins = process.env.NODE_ENV === 'production'
+    ? ['https://ruzovy-pasik.netlify.app', 'https://puellavone.netlify.app']
+    : ['http://localhost:5173', 'http://127.0.0.1:5501'];
 const corsOptions = {
-    origin: process.env.NODE_ENV === 'production'
-        ? 'https://ruzovy-pasik.netlify.app'
-        : 'http://localhost:5173',
+    origin: function (origin, callback) {
+        // Allow requests with no origin (like curl or Postman)
+        if (!origin)
+            return callback(null, true);
+        if (allowedOrigins.includes(origin)) {
+            return callback(null, true);
+        }
+        else {
+            return callback(new Error('Not allowed by CORS'));
+        }
+    },
     credentials: true,
 };
 app.use((0, cors_1.default)(corsOptions));
 // Limit the amount of data that can be sent in a request body
-app.use(express_1.default.json({ limit: '10kb' }));
+app.use(express_1.default.json({ limit: '15kb' }));
 //Routers
 const textsFileRoutes_1 = __importDefault(require("./routes/textsFileRoutes"));
 app.use('/file', textsFileRoutes_1.default);
@@ -97,4 +109,5 @@ app.use('/file', textsFileRoutes_1.default);
 app.get('/', (req, res) => {
     res.status(200).send('TOP BAR texts creator Server is Running....... 🛰️');
 });
+app.use(errorHandler_1.default);
 exports.default = app;

@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { CustomAPIError } from '../errors';
-// import { logger } from '../app';
+import { logger } from '../app';
 
 const handleGenericError = (
   error: Error,
@@ -9,8 +9,8 @@ const handleGenericError = (
   next: NextFunction,
   nameOfFunction: string
 ) => {
-  // logger.warn(`Warning: ${nameOfFunction}: (general Error)`);
-  // logger.error(error);
+  logger.warn(`Warning: ${nameOfFunction}: (general Error)`);
+  logger.error(error);
   return next(new CustomAPIError());
 };
 

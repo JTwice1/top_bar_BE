@@ -7,6 +7,7 @@ const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 const textsFileController_1 = require("../controllers/textsFileController");
 router.route('/saveFile').post(textsFileController_1.saveFile);
-router.route('/getFile').get(textsFileController_1.getFile);
+router.route('/getFile').post(textsFileController_1.getFile);
 router.route('/sendJSON').get(textsFileController_1.sendJSON);
+router.route('/sendActualJSON').get(textsFileController_1.sendActualJSON);
 exports.default = router;
