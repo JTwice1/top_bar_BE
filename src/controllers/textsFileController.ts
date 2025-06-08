@@ -89,19 +89,27 @@ const sendActualJSON = asyncWrapper(
       return next(new NotFoundError('File not found or empty'));
     }
 
+    function toFullISO(dateStr: string): string {
+      // If it already contains seconds, return as is
+      if (dateStr.match(/T\d{2}:\d{2}:\d{2}$/)) return dateStr;
+      // If it contains just hours and minutes, add ":00"
+      if (dateStr.match(/T\d{2}:\d{2}$/)) return `${dateStr}:00`;
+      return dateStr; // Fallback
+    }
+
     const parsed = JSON.parse(data);
-    const now = new Date();
+    const now = Date.now();
 
     const filtered = Object.fromEntries(
       Object.entries(parsed).map(([lang, entries]) => {
         const validEntries = (entries as Entry[]).filter((entry) => {
-          const startDate = new Date(entry.startDate);
-          const endDate = new Date(entry.endDate);
+          const startDate = new Date(toFullISO(entry.startDate));
+          const endDate = new Date(toFullISO(entry.endDate));
           return (
             !isNaN(startDate.getTime()) &&
             !isNaN(endDate.getTime()) &&
-            startDate < now &&
-            endDate > now
+            startDate.getTime() < now &&
+            endDate.getTime() > now
           );
         });
         return [lang, validEntries];
