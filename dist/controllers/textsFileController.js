@@ -86,8 +86,8 @@ const sendActualJSON = (0, asyncWrapper_1.default)(async (req, res, next) => {
     const now = new Date();
     const filtered = Object.fromEntries(Object.entries(parsed).map(([lang, entries]) => {
         const validEntries = entries.filter((entry) => {
-            const startDate = new Date(`${entry.startDate}:00`);
-            const endDate = new Date(`${entry.endDate}:00`);
+            const startDate = new Date(entry.startDate);
+            const endDate = new Date(entry.endDate);
             return (!isNaN(startDate.getTime()) &&
                 !isNaN(endDate.getTime()) &&
                 startDate < now &&
